@@ -8,7 +8,7 @@ import org.springframework.context.annotation.*;
  * Description:
  */
 @Configuration
-@ComponentScan("com.dubbo.exercise.serviceImpl")
+@ComponentScan("com.dubbo.exercise.serviceimpl")
 @ImportResource("classpath:dubbo-provide.xml")
 public class AppConfig {
 }

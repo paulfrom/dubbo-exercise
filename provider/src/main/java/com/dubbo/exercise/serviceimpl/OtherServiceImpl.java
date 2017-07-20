@@ -1,4 +1,4 @@
-package com.dubbo.exercise.serviceImpl;
+package com.dubbo.exercise.serviceimpl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.dubbo.exercise.entity.Other;
@@ -11,19 +11,19 @@ import java.util.List;
 
 /**
  * Created by liusonglin
- * Date:2017/7/7
+ * Date:2017/7/6
  * Description:
  */
 @Component
-@Service(version = "2.0.0")
-public class OtherServiceImpl2 implements OtherService {
+@Service(version = "1.0.0")
+public class OtherServiceImpl implements OtherService {
 
     @Autowired
     private OtherMapper otherMapper;
 
     @Override
     public List<Other> getOtherThing() {
-        return otherMapper.selectAll().subList(0,1);
+        return otherMapper.selectAll();
     }
 
     @Override

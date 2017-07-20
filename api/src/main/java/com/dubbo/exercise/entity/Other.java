@@ -18,5 +18,5 @@ public class Other implements Serializable {
 
     private String otherName;
 
-    private String OtherThing;
+    private String otherThing;
 }

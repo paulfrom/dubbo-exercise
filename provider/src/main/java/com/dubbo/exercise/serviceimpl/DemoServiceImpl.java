@@ -1,4 +1,4 @@
-package com.dubbo.exercise.serviceImpl;
+package com.dubbo.exercise.serviceimpl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.dubbo.exercise.entity.Demo;
@@ -6,6 +6,7 @@ import com.dubbo.exercise.mapper.DemoMapper;
 import com.dubbo.exercise.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 /**
@@ -29,10 +30,13 @@ public class DemoServiceImpl implements DemoService {
     @Value("${db.password}")
     String password;
 
+    @Autowired
+    RedisTemplate redisTemplate;
+
     @Override
     public Demo queryDemoById(int id){
         Demo demo = demoMapper.selectByPrimaryKey(id);
-        System.out.println(driver);
+        redisTemplate.convertAndSend("my:provider",demo);
         return demo;
     }
 

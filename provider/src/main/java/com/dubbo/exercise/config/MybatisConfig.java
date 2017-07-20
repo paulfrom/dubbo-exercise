@@ -2,13 +2,11 @@ package com.dubbo.exercise.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageHelper;
-import jdk.nashorn.internal.ir.annotations.Reference;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
@@ -20,9 +18,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 
-import javax.annotation.Resource;
 import javax.sql.DataSource;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -34,17 +30,8 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:properties/app.properties")
+@Slf4j
 public class MybatisConfig implements EnvironmentAware {
-//    @Value发生在ApplicationContext装配好之后？
-//    @Value("${db.driver}")
-//    private String driver;
-//    @Value("${db.url}")
-//    private String url;
-//    @Value("${db.username}")
-//    private String username;
-//    @Value("${db.password}")
-//    private String password;
-
     private Environment environment;
 
     @Bean("dataSource")
@@ -69,7 +56,7 @@ public class MybatisConfig implements EnvironmentAware {
         try {
             dataSource.setFilters("stat");
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("crate dataSource error",e);
         }
         return dataSource;
     }
@@ -95,19 +82,13 @@ public class MybatisConfig implements EnvironmentAware {
 
 
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-
         try {
             sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
-//            sqlSessionFactoryBean.setConfiguration();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
             return sqlSessionFactoryBean.getObject();
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException();
+            log.error("crate sqlSessionFactoryBean error",e);
         }
+        return null;
     }
 
     @Bean

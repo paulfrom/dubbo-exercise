@@ -1,9 +1,7 @@
 package com.dubbo.exercise.controller;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.dubbo.exercise.componet.WrapService;
 import com.dubbo.exercise.entity.Other;
-import com.dubbo.exercise.service.OtherService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

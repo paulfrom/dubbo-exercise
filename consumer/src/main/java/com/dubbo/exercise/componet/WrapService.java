@@ -1,12 +1,9 @@
 package com.dubbo.exercise.componet;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.dubbo.exercise.entity.Other;
 import com.dubbo.exercise.service.DemoService;
 import com.dubbo.exercise.service.OtherService;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 
 /**
  * Created by liusonglin
