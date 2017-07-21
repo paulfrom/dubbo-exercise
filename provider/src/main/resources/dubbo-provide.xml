@@ -15,5 +15,5 @@
     <!--<dubbo:service interface="com.dubbo.exercise.service.DemoService" ref="demoServiceImpl"/>-->
 
     <!--扫描包配置-->
-    <dubbo:annotation package="com.dubbo.exercise.service"/>
+    <dubbo:annotation package="com.dubbo.exercise.api.service"/>
 </beans>

@@ -1,5 +1,8 @@
 # dubbo-exercise
-spring + spring boot + mybatis + zookeeper
+spring + spring boot + mybatis + zookeeper + redis
+
+
+用redis实现了消息发布订阅
 
 provider 注意事项：
 1、util包的MyMapper<T> 不要被扫描到，否则可能会出错
@@ -19,3 +22,6 @@ consumer 注意事项
 api注意事项
 
 1、要传输的实体类必须事项 Serializable 接口
+
+
+
