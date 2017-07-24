@@ -1,4 +1,4 @@
-package com.dubbo.exercise.zookeeper.serializer;
+package com.dubbo.exercise.kafka.serializer;
 
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
