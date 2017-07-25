@@ -69,6 +69,7 @@
             <!--<artifactId>zkclient</artifactId>-->
             <!--<version>${zkClient-version}</version>-->
         <!--</dependency>-->
+
         <!--kafak-->
         <dependency>
             <groupId>org.apache.kafka</groupId>
@@ -79,6 +80,21 @@
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-clients</artifactId>
             <version>${kafka-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+            <version>1.1.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-kafka</artifactId>
+            <version>2.1.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-core</artifactId>
+            <version>4.3.11.RELEASE</version>
         </dependency>
         <!--dubbo-->
         <dependency>

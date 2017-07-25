@@ -42,18 +42,6 @@ public class ProducerFactoryTest {
         log.info("Result1 {}",TopicUtil.createTopic("test2"));
         log.info("Result2 {}",TopicUtil.deleteTopic("kafkatopic"));
         log.info("Result3 {}",TopicUtil.isTopicExist("test1"));
-        Producer producer = ProducerFactory.getProducer(props);
-        ProducerRecord producerRecord = new ProducerRecord("mytest","keykey",props);
-        Future<RecordMetadata> result = producer.send(producerRecord);
-        producer.flush();
-        try {
-            Assert.assertEquals(result.get(),"mytest");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-        producer.close();
     }
 
 }

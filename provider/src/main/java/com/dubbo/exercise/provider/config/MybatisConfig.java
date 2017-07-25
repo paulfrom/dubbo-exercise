@@ -66,7 +66,7 @@ public class MybatisConfig implements EnvironmentAware {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
 
-        sqlSessionFactoryBean.setTypeAliasesPackage("com.dubbo.exercise.entity");
+        sqlSessionFactoryBean.setTypeAliasesPackage("com.dubbo.exercise.api.entity");
 
         /*分页插件*/
         PageHelper pageHelper = new PageHelper();
@@ -106,9 +106,9 @@ public class MybatisConfig implements EnvironmentAware {
     public MapperScannerConfigurer mapperScannerConfigurer(){
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
-        mapperScannerConfigurer.setBasePackage("com.dubbo.exercise.mapper");
+        mapperScannerConfigurer.setBasePackage("com.dubbo.exercise.provider.mapper");
         Properties properties = new Properties();
-        properties.setProperty("mappers", "com.dubbo.exercise.util.MyMapper");
+        properties.setProperty("mappers", "com.dubbo.exercise.provider.util.MyMapper");
         properties.setProperty("notEmpty", "true");
         properties.setProperty("IDENTITY", "MYSQL");
         mapperScannerConfigurer.setProperties(properties);

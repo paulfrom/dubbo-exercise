@@ -8,7 +8,7 @@ import org.springframework.context.annotation.*;
  * Description:
  */
 @Configuration
-@ComponentScan("com.dubbo.exercise.provider.serviceimpl")
+@ComponentScan({"com.dubbo.exercise.provider.serviceimpl","com.dubbo.exercise.kafka"})
 @ImportResource("classpath:dubbo-provide.xml")
 public class AppConfig {
 }

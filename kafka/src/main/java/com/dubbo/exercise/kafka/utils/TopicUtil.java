@@ -45,8 +45,4 @@ public class TopicUtil {
         zkUtils.close();
         return false;
     }
-
-//    public boolean editTopic(String oldTopic,String newTopic){
-//
-//    }
 }

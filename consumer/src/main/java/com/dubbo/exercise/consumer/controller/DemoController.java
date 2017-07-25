@@ -33,7 +33,7 @@ public class DemoController {
 
     @GetMapping("/index/{id}")
     public Demo index(@PathVariable("id")int id){
-        redisTemplate.convertAndSend("my:consumer",id);
+        redisTemplate.convertAndSend("my:lisener",id);
         if(demoService!=null){
             log.info("demo service is not null");
             Demo demo = new Demo();

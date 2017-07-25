@@ -58,7 +58,7 @@ public class RedisConfig implements EnvironmentAware {
     public RedisMessageListenerContainer redisContainer(JedisConnectionFactory jedisConnectionFactory) {
         final RedisMessageListenerContainer container = new RedisMessageListenerContainer();
         container.setConnectionFactory(jedisConnectionFactory);
-        container.addMessageListener(new RedisMessageListener() , new ChannelTopic("my:consumer"));
+        container.addMessageListener(new RedisMessageListener() , new ChannelTopic("my:lisener"));
         return container;
     }
 
